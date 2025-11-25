@@ -256,6 +256,11 @@
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobileMenu");
 
+    document.getElementById("hamburger").onclick = () => {
+    document.getElementById("mobileMenu").classList.toggle("open");
+};
+
+
     hamburger.addEventListener("click", () => {
         mobileMenu.classList.toggle("open");
 

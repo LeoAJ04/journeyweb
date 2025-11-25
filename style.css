@@ -24,6 +24,7 @@ body {
 }
 
 /* ===== Navbar ===== */
+
 nav {
     background-color: #0A090C;
     display: flex;
@@ -32,11 +33,14 @@ nav {
     padding: 10px 40px;
     position: fixed;
     width: 100%;
+    top: 0;
+    left: 0;
     border-bottom: 2px solid white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
 
+/* LEFT SIDE (LOGO + TITLE) */
 .nav1 {
     display: flex;
     align-items: center;
@@ -52,31 +56,40 @@ nav {
 
 .nav1 h4 {
     font-family: leo;
-    font-size: 1.5rem;
-    font-weight: 100;
+    font-size: 1.2rem;
+    font-weight: 90;
 }
 
+/* DESKTOP NAV LINKS */
 .nav2 {
     display: flex;
     align-items: center;
     gap: 30px;
 }
 
+/* NAV LINKS TEXT */
 .nav2 h4 {
     font-family: hell;
     font-size: 1.1rem;
-    font-weight: 100;
     cursor: pointer;
 }
 
 
+/* ===== HAMBURGER ICON (HIDDEN ON DESKTOP) ===== */
+.hamburger {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    font-size: 35px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    display: none;
+    color: white;
+    z-index: 2000;
+}
 
-
-
-
-
-
-/* ===== Blinking Dot ===== */
+/* BLINK RED DOT */
 #blink {
     width: 12px;
     height: 12px;
@@ -85,102 +98,45 @@ nav {
     animation: blink 1s infinite;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
 
-
-
-
-/* HAMBURGER HIDE ON PC */
-.hamburger {
-    display: none;
-    font-size: 35px;
-    color: white;
-    cursor: pointer;
-}
-
-/* MOBILE MENU CLOSED DEFAULT */
-#mobileMenu {
-    transition: max-height 0.4s ease;
-}
-
-/* ----- MOBILE VIEW ----- */
+/* ===== MOBILE VIEW ===== */
 @media (max-width: 900px) {
 
+    /* Show hamburger */
     .hamburger {
-        display: flex;       /* show hamburger */
-        z-index: 2000;
-
+        display: block;
     }
 
+    /* Hide desktop menu */
     .nav2 {
-        position: absolute;
-        top: 70px;
+        position: fixed;
+        top: 70px;         /* Opens just under navbar */
         right: 0;
-        width: 100%;
+        width: 80%;
         background: #0A090C;
         flex-direction: column;
         text-align: left;
-        
-        /* menu hidden by default */
-        max-height: 0;
+
+        max-height: 0;       /* initially closed */
         overflow: hidden;
         padding: 0;
-        border-bottom: 2px solid white;
+        transition: max-height 0.4s ease;
+        border-left: 2px solid white;
     }
 
     .nav2 h4, .nav2 h5 {
+        width: 100%;
         padding: 15px;
         border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
+    /* OPEN STATE */
     .nav2.open {
-        max-height: 350px;     /* menu opens */
+        max-height: 400px;   /* expands on click */
         padding-bottom: 10px;
     }
 }
 
-
-/* FIXED HAMBURGER ON RIGHT SIDE */
-.hamburger {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 35px;
-    color: white;
-    cursor: pointer;
-    display: none;
-    z-index: 3000;
-}
-
-@media (max-width: 900px) {
-    .hamburger {
-        display: block;
-    }
-}
-
-
-nav {
-    background-color: #0A090C;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;   /* reduced so hamburger aligns */
-    position: fixed;
-    width: 100%;
-    border-bottom: 2px solid white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-
-.nav2 {
-    position: absolute;
-    top: 70px;  /* Opens below navbar */
-    right: 0;
-}
 
 
 
