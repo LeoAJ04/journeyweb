@@ -19,7 +19,13 @@
             <h4>Cds Journey:2.0</h4>
         </div>
 
-        <div class="nav2">
+        
+    <!-- HAMBURGER ICON -->
+    <div class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+        <div class="nav2" id="mobileMenu">
             <div id="blink">
 
             </div>
@@ -244,6 +250,23 @@
 
 
 
+
+
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+
+        // change icon between bars & cross
+        if (mobileMenu.classList.contains("open")) {
+            hamburger.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+        } else {
+            hamburger.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+        }
+    });
+</script>
 
 
 
